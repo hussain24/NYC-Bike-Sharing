@@ -1,0 +1,41 @@
+<div class="main-container">
+  <h1 class="main-heading">NYC Bike Sharing</h1>
+  <Table style="width: 100%;">
+    <tr>
+      <td style="width: 10%;">
+        <label>Range(KM): </label>
+      </td>
+      <td>
+        <input type="number" class="input-box" [(ngModel)]='this.range'>
+      </td>
+    </tr>
+  </Table>
+  <br />
+  <app-map [Range]="this.range" [Markers]="this.markers"></app-map>
+  <br/>
+  <Table style="width: 100%;">
+    <tr>
+      <td style="width: 10%;">
+        <label> Filter By Station </label>
+      </td>
+      <td>
+        <ng-autocomplete 
+        [data]="this.stationNames"
+        [itemTemplate]="itemTemplate"
+        [searchKeyword]="keyword"
+        [notFoundTemplate]="notFoundTemplate"
+        (inputChanged)='onChangeSearch($event)'
+        (selected)='selectEvent($event)'>                                 
+      </ng-autocomplete>
+      </td>
+    </tr>
+  </Table>
+  <br/>
+  <app-charts [DynamicData]="dynamicData" [SearchedKeyword]="searchedKey" [StaticData]="staticData"></app-charts>  
+</div>
+<ng-template #itemTemplate let-item>
+  <a [innerHTML]="item.stationName"></a>
+</ng-template>
+<ng-template #notFoundTemplate let-notFound>
+  <div [innerHTML]="notFound"></div>
+</ng-template>

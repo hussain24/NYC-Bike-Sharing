@@ -1,0 +1,23 @@
+
+<div class="card">
+  <agm-map [latitude]="this.lat" [longitude]="this.lng" [fitBounds]="true">
+    <agm-marker 
+        [latitude]="this.lat"
+        [longitude]="this.lng"
+        title="Your current location"
+        [markerDraggable]="false"
+        [agmFitBounds]="true"
+        zIndex=99
+        iconUrl="/assets/user-marker.png">
+    </agm-marker>
+      <agm-marker 
+        *ngFor="let m of this.filteredMarkers"
+        [latitude]="m.lat"
+        [longitude]="m.lng"
+        [title]="m.title"
+        [markerDraggable]="false"
+        [agmFitBounds]="true"
+        [iconUrl]="m.icon">
+      </agm-marker>
+    </agm-map>
+</div>

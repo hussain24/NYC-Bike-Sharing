@@ -1,0 +1,26 @@
+<div class="cart-container">
+    <h3>Current Statistics</h3>
+    <div class="flex-item card">
+        <div style="display: block;">
+        <canvas baseChart width="200" height="100"
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [legend]="false"
+            [chartType]="barChartType">
+          </canvas>
+        </div>
+      </div>
+    <h3>Minute wise Statistics</h3>
+    <div class="flex-item card">
+        <div style="display: block;">
+        <canvas baseChart width="200" height="100"
+                    [datasets]="lineChartData"
+                    [labels]="lineChartLabels"
+                    [options]="lineChartOptions"
+                    [legend]="false"
+                    [chartType]="lineChartType">
+                </canvas>
+        </div>
+      </div>
+</div>
